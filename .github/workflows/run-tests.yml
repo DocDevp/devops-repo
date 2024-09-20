@@ -44,7 +44,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ docdevpr }}
+          username: ${{ docker login -u docdevpr }}
           password: ${{ dckr_pat_zlmEfIK1CdZdW1LmJsXMolGCwKA }}
 
       - name: Build and push Docker image
@@ -52,4 +52,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ docdevpr }}/tech-trek:${{ github.sha }}
+          tags: ${{ docker login -u docdevpr }}/tech-trek:${{ github.sha }}
